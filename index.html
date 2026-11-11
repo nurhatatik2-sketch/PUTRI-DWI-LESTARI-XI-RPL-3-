@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMB SMK Negeri 1 Bakti Persada</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Leaflet untuk peta Domisili -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="header">
+        <a href="#beranda" class="logo">
+            <div class="logo-icon">BP</div>
+            <div>
+                <strong>SMK NEGERI 1</strong>
+                <span>BAKTI PERSADA</span>
+            </div>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="navbar" id="navigation">
+            <a href="#beranda" class="active">Beranda</a>
+            <a href="#jalur">Jalur</a>
+            <a href="#jurusan">Jurusan</a>
+            <a href="#alur-daftar">Alur Daftar</a>
+            <a href="#daftar">Daftar Sekarang</a>
+            <a href="#cek-status">Cek Pendaftaran</a>
+            <a href="#peringkat">Peringkat</a>
+            <a href="#pengumuman">Pengumuman</a>
+        </nav>
+    </header>
+
+    <main id="mainContent">
+
+        <!-- BERANDA -->
+        <section id="beranda" class="hero page-view active-page">
+            <div class="page-heading">
+                <p class="eyebrow">SPMB TAHUN AJARAN 2027/2028</p>
+                <h1>Wujudkan Masa Depanmu Bersama SMK Negeri 1 Bakti Persada</h1>
+                <p class="hero-description">
+                    Pilih program keahlian sesuai minat dan bakatmu. Persiapkan masa depan melalui pendidikan kejuruan yang berkualitas.
+                </p>
+                <div class="hero-actions">
+                    <a href="#daftar" class="button-primary">Daftar Sekarang</a>
+                    <a href="#jurusan" class="button-secondary">Lihat Jurusan</a>
+                </div>
+            </div>
+
+            <div class="section home-information">
+                <p class="eyebrow">INFORMASI SPMB</p>
+                <h2>Penerimaan Siswa Baru</h2>
+                <div class="card-grid">
+                    <article class="info-card">
+                        <h3>8 Program Keahlian</h3>
+                        <p>Tersedia delapan pilihan jurusan unggulan.</p>
+                    </article>
+                    <article class="info-card">
+                        <h3>5 Jalur Pendaftaran</h3>
+                        <p>Pilih jalur sesuai persyaratan yang tersedia.</p>
+                    </article>
+                    <article class="info-card">
+                        <h3>Peringkat Otomatis</h3>
+                        <p>Peringkat dihitung berdasarkan ketentuan setiap jalur.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- JALUR PENDAFTARAN -->
+        <section id="jalur" class="section section-light page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">PILIH JALURMU</p>
+            <h2>Jalur Pendaftaran</h2>
+            <div class="card-grid">
+                <article class="info-card">
+                    <h3>Jalur Domisili</h3>
+                    <p>Untuk calon siswa yang memenuhi ketentuan wilayah tempat tinggal.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Jalur Afirmasi</h3>
+                    <p>Untuk calon siswa yang memenuhi persyaratan afirmasi.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Jalur Prestasi</h3>
+                    <p>Berdasarkan prestasi akademik maupun nonakademik.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Jalur Mutasi</h3>
+                    <p>Untuk calon siswa yang memenuhi ketentuan perpindahan tugas orang tua/wali.</p>
+                </article>
+                <article class="info-card">
+                    <h3>Jalur Nilai</h3>
+                    <p>Berdasarkan nilai rapor yang diperiksa dan dihitung oleh sistem.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- JURUSAN -->
+        <section id="jurusan" class="section page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">PILIH MINATMU</p>
+            <h2>Program Keahlian</h2>
+            <p class="section-description">Pilih jurusan yang sesuai dengan minat dan kemampuanmu.</p>
+            <div id="jurusanContainer" class="card-grid"></div>
+        </section>
+
+        <!-- ALUR PENDAFTARAN -->
+        <section id="alur-daftar" class="section section-light page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">LANGKAH PENDAFTARAN</p>
+            <h2>Alur Pendaftaran</h2>
+            <div class="card-grid">
+                <article class="info-card">
+                    <span class="step-number">01</span>
+                    <h3>Isi Identitas</h3>
+                    <p>Masukkan nama lengkap dan NISN.</p>
+                </article>
+                <article class="info-card">
+                    <span class="step-number">02</span>
+                    <h3>Lengkapi Biodata</h3>
+                    <p>Isi data diri dan sekolah asal.</p>
+                </article>
+                <article class="info-card">
+                    <span class="step-number">03</span>
+                    <h3>Pilih Jalur</h3>
+                    <p>Pilih jalur dan lengkapi persyaratannya.</p>
+                </article>
+                <article class="info-card">
+                    <span class="step-number">04</span>
+                    <h3>Pilih Jurusan</h3>
+                    <p>Tentukan pilihan jurusan pertama dan kedua.</p>
+                </article>
+            </div>
+            <div class="hero-actions" style="margin-top: 35px;">
+                <a href="#daftar" class="button-primary">Mulai Pendaftaran</a>
+            </div>
+        </section>
+
+        <!-- FORMULIR PENDAFTARAN -->
+        <section id="daftar" class="section page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">PENDAFTARAN ONLINE</p>
+            <h2>Formulir Pendaftaran</h2>
+            <p class="section-description">Lengkapi seluruh data dengan benar untuk melanjutkan pendaftaran.</p>
+
+            <form id="registrationForm" class="registration-form">
+                <!-- LANGKAH 1 -->
+                <div id="stepIdentity" class="registration-step">
+                    <h3>Identitas Awal</h3>
+                    <p>Masukkan nama lengkap dan NISN terlebih dahulu.</p>
+
+                    <label for="nama">Nama lengkap</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+
+                    <label for="nisn">NISN</label>
+                    <input type="text" id="nisn" name="nisn" inputmode="numeric" maxlength="10" placeholder="Masukkan 10 digit NISN" required>
+
+                    <button type="button" id="continueRegistration" class="button-primary">Lanjutkan</button>
+                </div>
+
+                <!-- LANGKAH 2 -->
+                <div id="stepDetails" class="registration-step" hidden>
+                    <h3>Biodata Calon Siswa</h3>
+
+                    <label for="nik">NIK</label>
+                    <input type="text" id="nik" name="nik" inputmode="numeric" maxlength="16" placeholder="Masukkan 16 digit NIK" required>
+
+                    <label for="tempatLahir">Tempat lahir</label>
+                    <input type="text" id="tempatLahir" name="tempatLahir" placeholder="Masukkan tempat lahir" required>
+
+                    <label for="tanggalLahir">Tanggal lahir</label>
+                    <input type="date" id="tanggalLahir" name="tanggalLahir" required>
+
+                    <label for="jenisKelamin">Jenis kelamin</label>
+                    <select id="jenisKelamin" name="jenisKelamin" required>
+                        <option value="">-- Pilih jenis kelamin --</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+
+                    <label for="agama">Agama</label>
+                    <select id="agama" name="agama" required>
+                        <option value="">-- Pilih agama --</option>
+                        <option value="Islam">Islam</option>
+                        <option value="Kristen">Kristen</option>
+                        <option value="Katolik">Katolik</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Buddha">Buddha</option>
+                        <option value="Konghucu">Konghucu</option>
+                    </select>
+
+                    <label for="alamat">Alamat lengkap</label>
+                    <textarea id="alamat" name="alamat" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+
+                    <label for="telepon">Nomor HP</label>
+                    <input type="tel" id="telepon" name="telepon" placeholder="Masukkan nomor HP" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email (opsional)">
+
+                    <!-- DATA SEKOLAH -->
+                    <h3>Data Sekolah Asal</h3>
+                    <label for="asalSekolah">Nama sekolah asal</label>
+                    <input type="text" id="asalSekolah" name="asalSekolah" placeholder="Masukkan nama sekolah asal" required>
+
+                    <label for="tahunLulus">Tahun lulus</label>
+                    <input type="number" id="tahunLulus" name="tahunLulus" placeholder="Contoh: 2027" min="2020" max="2035" required>
+
+                    <!-- PILIHAN JALUR -->
+                    <h3>Pilihan Jalur Pendaftaran</h3>
+                    <label for="jalurPilihan">Pilih jalur pendaftaran</label>
+                    <select id="jalurPilihan" name="jalur" required>
+                        <option value="">-- Pilih jalur pendaftaran --</option>
+                        <option value="Domisili">Jalur Domisili</option>
+                        <option value="Afirmasi">Jalur Afirmasi</option>
+                        <option value="Prestasi">Jalur Prestasi</option>
+                        <option value="Mutasi">Jalur Mutasi</option>
+                        <option value="Nilai">Jalur Nilai</option>
+                    </select>
+
+                    <div id="persyaratanJalur"></div>
+
+                    <!-- PILIHAN JURUSAN -->
+                    <h3>Pilihan Jurusan</h3>
+                    <label for="jurusanUtama">Pilihan jurusan pertama</label>
+                    <select id="jurusanUtama" name="jurusanUtama" required>
+                        <option value="">-- Pilih jurusan --</option>
+                    </select>
+
+                    <label for="jurusanAlternatif">Pilihan jurusan kedua</label>
+                    <select id="jurusanAlternatif" name="jurusanAlternatif" required>
+                        <option value="">-- Pilih jurusan --</option>
+                    </select>
+
+                    <!-- KONFIRMASI DATA -->
+                    <label class="checkbox-label" style="margin-top: 20px; display: flex; gap: 9px; align-items: flex-start;">
+                        <input type="checkbox" id="konfirmasiData" required style="width: 17px; height: 17px; margin-top: 3px;">
+                        <span>Saya memastikan data yang diisi sudah benar.</span>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="button" id="backRegistration" class="button-secondary">Kembali</button>
+                        <button type="submit" class="button-primary">Kirim Pendaftaran</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- HASIL PENDAFTARAN -->
+        <section id="hasil-pendaftaran" class="section section-light page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">PENDAFTARAN BERHASIL</p>
+            <h2>Bukti Pendaftaran</h2>
+            <p class="section-description">Simpan nomor pendaftaran dan cetak bukti ini sebagai arsip.</p>
+            <div id="hasilPendaftaran" class="result-box" hidden></div>
+        </section>
+
+        <!-- CEK PENDAFTARAN -->
+        <section id="cek-status" class="section section-light page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">CARI DATA PENDAFTARAN</p>
+            <h2>Cek Pendaftaran</h2>
+            <p class="section-description">Masukkan nomor pendaftaran untuk melihat bukti pendaftaran.</p>
+
+            <form id="statusForm" class="status-form">
+                <label for="nomorPendaftaran">Nomor pendaftaran</label>
+                <input type="text" id="nomorPendaftaran" placeholder="Contoh: BP-2027-000001" required>
+                <button type="submit" class="button-primary">Cari Pendaftaran</button>
+            </form>
+            <div id="hasilStatus" class="result-box" hidden></div>
+        </section>
+
+        <!-- PERINGKAT -->
+        <section id="peringkat" class="section page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">PEMERINGKATAN CALON SISWA</p>
+            <h2>Peringkat SPMB</h2>
+            <p class="section-description">Masukkan NISN untuk mencari data pendaftaran dan melihat peringkat berdasarkan jalur dan jurusan.</p>
+
+            <form id="peringkatForm" class="status-form">
+                <label for="nisnPeringkat">NISN</label>
+                <input type="text" id="nisnPeringkat" inputmode="numeric" maxlength="10" placeholder="Masukkan NISN" required>
+                <button type="submit" class="button-primary">Lihat Peringkat</button>
+            </form>
+
+            <div id="hasilPeringkat" hidden style="max-width: 700px; margin: 30px auto 0; text-align: left;">
+                <label for="jurusanPeringkat">Pilih jurusan</label>
+                <select id="jurusanPeringkat">
+                    <option value="">-- Pilih jurusan --</option>
+                </select>
+                <div id="tabelPeringkat" class="table-wrapper"></div>
+            </div>
+        </section>
+
+        <!-- PENGUMUMAN -->
+        <section id="pengumuman" class="section section-light page-view">
+            <button type="button" class="back-button" data-back>← Kembali</button>
+            <p class="eyebrow">HASIL SELEKSI</p>
+            <h2>Pengumuman SPMB</h2>
+            <p class="section-description">Hasil akhir seleksi akan ditampilkan setelah pendaftaran ditutup dan peringkat akhir ditetapkan.</p>
+            <div id="hasilPengumuman" class="result-box">Pengumuman belum tersedia.</div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="logo footer-logo">
+            <div class="logo-icon">BP</div>
+            <div>
+                <strong>SMK NEGERI 1</strong>
+                <span>BAKTI PERSADA</span>
+            </div>
+        </div>
+        <p>&copy; <span id="tahunFooter"></span> SPMB SMK Negeri 1 Bakti Persada.</p>
+        <p>Informasi Penerimaan Peserta Didik Baru.</p>
+    </footer>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Main JS -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
